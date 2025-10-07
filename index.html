@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess a number</title>
+  <style>
+    body{
+      background-color: rgba(0, 0, 0, 0.878);
+    }
+    h1{
+      text-align: center;
+      color: aliceblue;
+      font-size: 60px;
+      font-family: cursive;
+      margin-top: 50px;
+      margin-bottom: -20px;
+      text-shadow: 2px 1px 3px;
+    }
+    h2{
+      color: aqua;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 40px;
+      text-shadow: 2px 1px 3px;
+    }
+    .outer{
+      border: 2px solid aqua;
+      padding: 250px;
+      border-radius: 50px;
+      height: 100px;
+    }
+    .innerLeft{
+      border: 2px solid aqua;
+      padding: 150px;
+      border-radius: 50px;
+      float: left;
+      margin-top: -145px;
+      margin-left: -50px;
+      height: 100px;
+      width: 0px;
+    }
+    .innerMiddle{
+      border: 2px solid aqua;
+      padding: 150px;
+      border-radius: 50px;
+      float: centre;
+      position: relative;
+      margin-top: -145px;
+      margin-left: -50px;
+      height: 100px;
+      margin-right: -50px;
+    }
+    .innerRight{
+      border: 2px solid aqua;
+      padding: 150px;
+      border-radius: 50px;
+      float: right;
+      position: relative;
+      margin-top: -200px;
+      margin-right: -50px;
+      height: 100px;
+      top: -203px;
+      width: 0px;
+    }
+    #guessInput{
+      color: rgb(240, 240, 240);
+      background-color: rgba(0, 0, 0, 0.059);
+      text-align: center;
+      width: 489px;
+      height: 50px;
+      font-size: 30px;
+      border-radius: 300PX;
+      text-shadow: 1px 2px 5px;
+      border: 2px solid aqua;
+      letter-spacing: 2px;
+      box-shadow: 2px 1px 3px aqua;
+      font-style: italic;
+      position: sticky;
+      top: 0;
+    }
+    #guessInput::placeholder{
+      color: aqua;
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 1px 2px 5px aqua;
+      letter-spacing: 2px;
+    }
+    .innerLeft p{
+      color: aliceblue;
+      position: relative ;
+      top:-110px;
+      left: -110px;
+      margin: 30px;
+      font-size: 45px;
+      height: 100px;
+    }
+    .game-buttons {
+      position: absolute;
+      top: 270px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .game-buttons button {
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      width: 100%;
+    }
+
+    #guessButton {
+      background-color: transparent;
+      color: aqua;
+      border: 2px solid aqua;
+      box-shadow: 0 0 10px aqua;
+    }
+
+    #guessButton:hover {
+      background-color: aqua;
+      color: rgba(0, 0, 0, 0.878);
+      box-shadow: 0 0 20px aqua;
+    }
+
+    #resetButton {
+      background-color: transparent;
+      color: rgb(240, 240, 240);
+      border: 2px solid rgb(240, 240, 240);
+      box-shadow: 0 0 10px rgb(240, 240, 240);
+    }
+
+    #resetButton:hover {
+      background-color: rgb(240, 240, 240);
+      color: rgba(0, 0, 0, 0.878);
+      box-shadow: 0 0 20px rgb(240, 240, 240);
+    }
+    #gameMessage {
+      color: rgb(248, 248, 248);
+      font-family: cursive;
+      font-size: 40px;
+      position: relative;
+      top: -140px; 
+      left: -150px; 
+      text-align: center;
+      width: 300px;
+      line-height: 1.4;
+    }
+    .innerRight p{
+      color: rgb(248, 248, 248);
+      font-family: cursive;
+      font-size: 40px;
+      position: relative;
+      top: -150px; 
+      left: -150px; 
+      text-align: center;
+      width: 300px;
+      line-height: 1.4;
+    }
+ </style>
+</head>
+<body>
+  <h1>Guess the number</h1>
+  <h2><center>Guess a number between 1 -20</center></h2>
+  <div class="outer">
+    <div class="innerLeft">
+      <p>Attempt left:<span id="attemptsLeft">3</span></p>
+      <p>previous guess:<span id="previousGuesses">None</span></p>
+    </div>
+    <div class="innerMiddle">
+      <input type="number" id="guessInput" min="1" max="100" placeholder="ENTER NO B/W 1-20">
+      <div class="game-buttons">
+            <button id="guessButton">GUESS</button>
+            <button id="resetButton">RESET</button>
+        </div>
+    </div>
+    <div class="innerRight">
+      <p> Score:<span id="gameScore">0</span></p>
+      <p id="gameMessage">Start Guessing</p>
+    </div>
+  </div>
+  <script src="Guess.js"></script>
+</body>
+</html>
