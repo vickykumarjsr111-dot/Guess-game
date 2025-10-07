@@ -1,10 +1,13 @@
+'use strict';
 let randomNumber = Math.floor(Math.random() * 20) + 1;
 let attempts = 3;
 let previousGuessesArray = [];
 let score = 20;
+let sco=0;
 const guessInput = document.getElementById('guessInput');
 const guessButton = document.getElementById('guessButton');
 const resetButton = document.getElementById('resetButton');
+const highSco=document.getElementById('highSco');
 const gameScore = document.getElementById('gameScore');
 const messageDisplay = document.getElementById('gameMessage'); 
 const attemptsLeft = document.getElementById('attemptsLeft'); 
@@ -27,11 +30,14 @@ function setMessage(msg, color)
     messageDisplay.innerHTML = formattedMsg; 
     messageDisplay.style.color = color;
 }
+function updatehighSco()
+{
+    highSco.textContent = sco;
+}
 function updateScoreDisplay() 
 {
     gameScore.textContent = score;
 }
-
 function checkGuess() 
 {
     const userGuess = parseInt(guessInput.value);
@@ -48,8 +54,14 @@ function checkGuess()
     previousGuesses.textContent = previousGuessesArray.join(', ');
     guessInput.value = ''; 
 
-    if (userGuess === randomNumber) { 
+    if (userGuess === randomNumber)
+    {
         setMessage('😍🎉 **You won!** The number was ' + randomNumber, 'aqua');
+        if (score > sco)
+        {
+            sco = score;
+            updatehighSco();
+        }
         endGame(true);
     } 
     else if (attempts === 0) 
