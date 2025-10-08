@@ -92,7 +92,7 @@ function resetGame()
     randomNumber = Math.floor(Math.random() * 20) + 1;
     attempts = 3;
     previousGuessesArray = [];
-
+    score = 0;
     attemptsLeft.textContent = attempts;
     previousGuesses.textContent = 'None';
     setMessage('Start Guessing', 'rgb(248, 248, 248)');
